@@ -15,7 +15,7 @@ package 'vim' do
   action :install
 end
 
-execute "Remove dotfiles for #{node['dcp']['user']} to prep for DCP" do
+execute "Remove dotfiles for user #{node['dcp']['user']}" do
   command "curl --location --silent \"https://raw.githubusercontent.com/dpoggi/dcp/master/bin/dcp-remove-dotfiles\" | bash"
   cwd "/home/#{node['dcp']['user']}"
   environment({ 'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', })
