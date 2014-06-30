@@ -11,6 +11,9 @@ include_recipe 'git'
 package 'curl' do
   action :install
 end
+package 'vim' do
+  action :install
+end
 
 execute "Remove dotfiles for #{node['dcp']['user']} to prep for DCP" do
   command "curl --location --silent \"https://raw.githubusercontent.com/dpoggi/dcp/master/bin/dcp-remove-dotfiles\" | bash"
