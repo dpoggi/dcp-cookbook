@@ -8,7 +8,7 @@
 #
 
 define :dcp_script, :user => nil, :check_dcp => false do
-  if params[:user]
+  if params[:user] && File.exists?("/home/#{params[:user]}")
     script_name = params[:name]
     user_name = params[:user]
     check_dcp = params[:check_dcp]
