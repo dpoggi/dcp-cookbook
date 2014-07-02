@@ -1,10 +1,10 @@
-# dcp-cookbook
+# dcp Chef Recipe
 
-TODO: Enter the cookbook description here.
+Installs and configures my dotfiles and configuration standards for an Ubuntu box. Opinionated as it gets.
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+* Ubuntu
 
 ## Attributes
 
@@ -16,23 +16,23 @@ TODO: List your supported platforms.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['dcp']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['dcp']['user']</tt></td>
+    <td>String</td>
+    <td>User for whom to install dotfiles</td>
+    <td><tt>nil</tt></td>
   </tr>
 </table>
 
 ## Usage
 
-### dcp::default
+### dcp
 
 Include `dcp` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[dcp::default]"
+    "recipe[dcp]"
   ]
 }
 ```
@@ -48,4 +48,5 @@ Include `dcp` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+License:: MIT
+Author:: Dan Poggi (dan.poggi@gmail.com)

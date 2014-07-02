@@ -2,8 +2,12 @@ name             'dcp'
 maintainer       'Dan Poggi'
 maintainer_email 'dan.poggi@gmail.com'
 license          'MIT'
-description      'Installs/Configures dcp'
-long_description 'Installs/Configures dcp'
-version          '0.1.2'
+description      'Installs/configures dotfiles and other configuration standards'
+version          '0.1.3'
+
+recipe 'dcp', 'Installs/configures dotfiles and other configuration standards'
 
 depends 'git'
+depends 'zsh'
+
+supports 'ubuntu'

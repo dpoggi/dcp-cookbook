@@ -2,37 +2,25 @@
 # Cookbook Name:: dcp
 # Recipe:: default
 #
-# Copyright (C) 2014 YOUR_NAME
+# Copyright (C) 2014 Dan Poggi
 #
-# All rights reserved - Do Not Redistribute
+# Licensed under the MIT License, see LICENSE for details.
 #
 
+# Install packages we want for administration
+include_recipe 'zsh'
 include_recipe 'git'
-package 'curl' do
-  action :install
-end
-package 'vim' do
-  action :install
-end
+package 'curl'
+package 'vim'
+package 'htop'
+package 'ack-grep'
 
-execute "Remove dotfiles for user #{node['dcp']['user']}" do
-  command "curl --location --silent \"https://raw.githubusercontent.com/dpoggi/dcp/master/bin/dcp-remove-dotfiles\" | bash"
-  cwd "/home/#{node['dcp']['user']}"
-  environment({ 'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', })
+# Make sure dotfiles are in order
+dcp_script 'remove-dotfiles' do
   user node['dcp']['user']
-  group node['dcp']['user']
-  not_if do
-    File.exists?("/home/#{node['dcp']['user']}/.dcp")
-  end
+  check_dcp true
 end
-
-execute "Install DCP for user #{node['dcp']['user']}" do
-  command "curl --location --silent \"https://raw.githubusercontent.com/dpoggi/dcp/master/bin/dcp-bootstrap\" | bash"
-  cwd "/home/#{node['dcp']['user']}"
-  environment({ 'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', })
+dcp_script 'bootstrap' do
   user node['dcp']['user']
-  group node['dcp']['user']
-  not_if do
-    File.exists?("/home/#{node['dcp']['user']}/.dcp")
-  end
+  check_dcp true
 end
