@@ -10,6 +10,7 @@
 # Install packages we want for administration
 include_recipe 'zsh'
 include_recipe 'git'
+include_recipe 'users::sysadmins'
 package 'curl'
 package 'vim'
 package 'htop'

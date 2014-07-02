@@ -8,8 +8,6 @@
 #
 
 define :dcp_script, :user => nil, :check_dcp => false do
-  include_recipe 'users::sysadmins'
-
   if params[:user]
     script_name = params[:name]
     user_name = params[:user]
