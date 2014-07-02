@@ -3,7 +3,7 @@ maintainer       'Dan Poggi'
 maintainer_email 'dan.poggi@gmail.com'
 license          'MIT'
 description      'Installs/configures dotfiles and other configuration standards'
-version          '0.2.1'
+version          '0.2.2'
 
 recipe 'dcp', 'Installs/configures dotfiles and other configuration standards'
 
