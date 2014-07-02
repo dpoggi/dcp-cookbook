@@ -61,6 +61,7 @@ bash 'harden-sshd' do
   BASH
 end
 service 'ssh' do
+  supports :restart => true
   action :restart
 end
 
